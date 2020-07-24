@@ -7,6 +7,7 @@ def rectangle():
     return Rectangle(height=5, width=3)
 
 
+
 def test_constructor(rectangle):
     assert isinstance(rectangle, Rectangle)
 
@@ -32,8 +33,6 @@ def test_constructor_with_string_edges_should_throw_exception():
 def test_rectangle_with_0_width_should_not_be_possible():
     try:
         rectangle = Rectangle(height=4, width=0)
-    except ZeroDivisionError as e:
-        assert isinstance(e, Exception)
     except ZeroEdgeError as e:
         assert isinstance(e, Exception)
     else:
@@ -43,8 +42,6 @@ def test_rectangle_with_0_width_should_not_be_possible():
 def test_rectangle_with_0_height_should_not_be_possible():
     try:
         rectangle = Rectangle(height=0, width=4)
-    except ZeroDivisionError as e:
-        assert isinstance(e, Exception)
     except ZeroEdgeError as e:
         assert isinstance(e, Exception)
     else:
@@ -94,7 +91,7 @@ def test_set_height_with_invalid_input(rectangle):
             pytest.fail("Error expected but none found")
 
 
-def test_get_width_with_valid_width(rectangle):
+def test_set_width_with_valid_width(rectangle):
     assert rectangle.get_width() == 3
     rectangle.set_width(10)
     assert rectangle.get_width() == 10
